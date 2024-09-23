@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="mediaqueries.css" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+    :root {
+      --blanc-color: #ffffff;
+      --noir-color: #000000;
+      --text-gris: #4a4949;
+      --text-light: #e9ebec;
+      --shadow-color: rgba(0, 0, 255, 0.2);
+      --gradient-color: linear-gradient(180deg,
+          rgba(0, 0, 255, 0.02) 0% rgba(0, 0, 255, 0.1) 95%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: var(--noir-color);
+    }
+
+    p {
+      color: var(--text-gris);
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /***************************************************************Class basique ***************************************************************/
+    a,
+    .btn {
+      transition: all 300ms ease;
+    }
+
+    /*************************************************************** Nav-link ***************************************************************/
+    nav,
+    .nav-links {
+      display: flex;
+    }
+
+    nav {
+      justify-content: space-around;
+      align-items: center;
+      height: 17vh;
+    }
+
+    .nav-links {
+      gap: 2rem;
+      list-style: none;
+      font-size: 1.5rem;
+    }
+
+    a {
+      color: var(--noir-color);
+      text-decoration-color: var(--blanc-color);
+    }
+
+    a:hover {
+      color: var(--text-gris);
+      text-decoration: underline;
+      text-underline-offset: 1rem;
+      text-decoration-color: rgb(181, 181, 181, );
+    }
+
+    .logo {
+      font-size: 2rem;
+    }
+
+    .logo:hover {
+      cursor: default;
+    }
+
+    /*************************************************************** Humberger nav ***************************************************************/
+    #hamburger-nav {
+      display: none;
+    }
+
+    .hamburger-menu {
+      position: relative;
+      display: inline-block;
+    }
+
+    .hamburger-icon {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 24px;
+      width: 30px;
+      cursor: pointer;
+    }
+
+    .hamburger-icon span {
+      width: 100%;
+      height: 2px;
+      background: var(--noir-color);
+      transition: all 0.3 ease-in-out;
+    }
+
+    .menu-link {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: var(--blanc-color);
+      width: fit-content;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3 ease-in-out;
+    }
+
+    .menu-link a {
+      display: block;
+      padding: 10px;
+      text-align: center;
+      font-size: 1.5rem;
+      color: var(--noir-color);
+      text-decoration: none;
+      transition: all 0.3 ease-in-out;
+    }
+
+    .menu-link li {
+      list-style: none;
+    }
+
+    .menu-link.open {
+      max-height: 300px;
+    }
+
+    .hamburger-icon.open span:first-child {
+      transform: rotate(45deg) translate(10px, 5px);
+    }
+
+    .hamburger-icon.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger-icon.open span:last-child {
+      transform: rotate(-45deg) translate(10px, -5px);
+    }
+
+    .hamburger-icon span:first-child {
+      transform: none;
+    }
+
+    .hamburger-icon span:first-child {
+      opacity: 1;
+    }
+
+    .hamburger-icon span:first-child {
+      transform: none;
+    }
+
+    /*************************************************************** Section 1 ***************************************************************/
+    section {
+      padding-top: 4vh;
+      height: 96vh;
+      margin: 0 10rem;
+      box-sizing: border-box;
+      min-height: fit-content;
+    }
+
+    .section-container {
+      display: flex;
+    }
+
+    /***************************************************************Profile***************************************************************/
+
+    #profile {
+      display: flex;
+      justify-content: center;
+      gap: 170px;
+    }
+
+    .section__pic-container {
+      display: flex;
+      height: 450px;
+      width: 400px;
+      margin: auto 0;
+    }
+
+    img {
+      border-radius: 5%;
+      /* margin-left: 100px; */
+      margin-left: 5vh;
+    }
+
+    .section__text {
+      align-self: center;
+      text-align: center;
+    }
+
+    .section__text p {
+      font-weight: 600;
+    }
+
+    .section__text__p1 {
+      text-align: center;
+    }
+
+    .section__text__p2 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .titre {
+      font-size: 3rem;
+      text-align: center;
+    }
+
+    .icon {
+      font-size: 30px;
+      cursor: pointer;
+      /* height: 2rem; */
+    }
+
+    #socials-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+      gap: 1rem;
+      font-size: 1.5rem;
+    }
+
+    /***************************************************************Buttons***************************************************************/
+
+    .btn-container {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .btn {
+      font-weight: 600;
+      transition: all 300ms ease;
+      padding: 1rem;
+      width: 9rem;
+      border-radius: 2rem;
+    }
+
+    .btn-color-1,
+    .btn-color-2 {
+      border: rgb(53, 53, 53) 0.1rem solid;
+    }
+
+    .btn-color-1:hover,
+    .btn-color-2:hover {
+      cursor: pointer;
+    }
+
+    .btn-color-1,
+    .btn-color-2:hover {
+      background: rgb(53, 53, 53);
+      color: var(--blanc-color);
+    }
+
+    .btn-color-1:hover {
+      background: var(--noir-color);
+    }
+
+    .btn-color-2 {
+      background: none;
+    }
+
+    .btn-color-2:hover {
+      border: rgb(255, 255, 255) 0.1rem solid;
+    }
+
+    .btn-container {
+      gap: 1rem;
+    }
+
+    /* Apropos */
+    #about {
+      position: relative;
+    }
+
+    .about-containers {
+      gap: 2rem;
+      margin-bottom: 2rem;
+      margin-top: 2rem;
+    }
+
+    .about-details-containers {
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .about-containers,
+    .about-details-containers {
+      display: flex;
+    }
+
+    .about-pic {
+      border-radius: 5%;
+      /* margin-left: 5%; */
+    }
+
+    .arrow {
+      position: absolute;
+      right: -5rem;
+      bottom: 2.5rem;
+    }
+
+    .details-containers {
+      padding: 1.5rem;
+      flex: 1;
+      background: var(--blanc-color);
+      border-radius: 2rem;
+      border: var(--text-gris) 0.1rem solid;
+      border-color: var(--noir-color);
+      text-align: center;
+    }
+
+    .section-container {
+      gap: 4rem;
+      height: 80%;
+    }
+
+    .section__pic-container {
+      height: 400px;
+      width: 400px;
+      margin: auto 0;
+    }
+
+    /***************************************************************Section Experienc ***************************************************************/
+    #experience {
+      position: relative;
+    }
+
+    .experience-sub-titre {
+      color: var(--text-gris);
+      font-weight: 600;
+      font-size: 1.5rem;
+      margin-bottom: 5rem;
+    }
+
+    .experience-details-container {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .article-container {
+      display: flex;
+      text-align: initial;
+      flex-wrap: wrap;
+      flex-direction: row;
+      gap: 2.5rem;
+      justify-content: space-around;
+    }
+
+    .article .icon {
+      cursor: default;
+    }
+
+    /***************************************************************Projets***************************************************************/
+    #projets {
+      position: relative;
+    }
+
+    .color-container {
+      border-color: var(--text-gris);
+      background: rgb(250, 250, 250);
+    }
+
+    .projets-img {
+      width: 90%;
+      height: 90%;
+      margin-left: -3.5px;
+      margin-right: -5px;
+      border-radius: 5%;
+    }
+
+    .projet-titre {
+      margin: 1rem;
+      color: var(--noir-color);
+    }
+
+    .projet-btn {
+      color: var(--noir-color);
+      border-color: var(--text-gris);
+    }
+
+    /***************************************************************Contacts***************************************************************/
+    #contact {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      height: 70vh;
+    }
+
+    .contact-info-upper-container {
+      display: flex;
+      justify-content: center;
+      border-radius: 2rem;
+      border: var(--text-gris) 0.1rem solid;
+      border-color: rgb(163, 163, 163);
+      background: rgb(250, 250, 250);
+      margin: 2rem auto;
+      padding: 0.5rem;
+    }
+
+    .contact-info-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: 1rem;
+    }
+
+    .contact-info-container p {
+      font-size: larger;
+    }
+
+    .contact-icon {
+      cursor: default;
+    }
+
+    .email-icon {
+      height: 2.5rem;
+    }
+
+    /* footer */
+    footer {
+      height: 26vh;
+      margin: 0 1rem;
+    }
+
+    footer p {
+      text-align: center;
+    }
+
+    @media screen and (max-width: 1400px) {
+      #profile {
+        height: 83vh;
+      }
+
+      .about-containers {
+        flex-wrap: wrap;
+      }
+    }
+
+
+    @media screen and (max-width: 1200px) {
+      #dekstop-nav {
+        display: none;
+      }
+
+      #hamburger-nav {
+        display: flex;
+      }
+
+      #experience,
+      .experience-details-container {
+        margin-top: 2rem;
+      }
+
+      #profile,
+      .section-container {
+        display: block;
+      }
+
+      #profile {
+        margin-top: 5rem;
+        gap: 1rem;
+      }
+
+      .arrow {
+        display: none;
+      }
+
+      section,
+      .section-container {
+        height: fit-content;
+      }
+
+      section {
+        margin: 0 5%;
+      }
+
+      .section__pic-container {
+        width: 275px;
+        height: 275px;
+        margin: 0 auto 2rem;
+      }
+
+      .about-containers {
+        margin-top: 0;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+
+      #contact,
+      footer {
+        height: 30vh;
+      }
+
+      #profile {
+        height: 73vh;
+        margin-top: 7.5rem;
+      }
+
+      #about {
+        margin-bottom: 10rem;
+      }
+
+      #experience {
+        margin-bottom: 5rem;
+      }
+
+      #projet {
+        margin-top: 10rem;
+      }
+
+      #contact {
+        margin-top: 5em;
+      }
+
+      footer {
+        margin-top: 5rem;
+      }
+
+      article {
+        font-size: 1rem;
+      }
+
+      footer nav {
+        height: fit-content;
+        margin-bottom: 4rem;
+      }
+
+      .about-containers,
+      .contact-info-upper-container,
+      .btn-container {
+        flex-wrap: wrap;
+      }
+
+      .contact-info-container p {
+        margin: 0;
+        gap: 2rem;
+      }
+
+      .contact-info-container p,
+      .nav-links li a {
+        font-size: 1rem;
+      }
+
+      .experience-sub-titre {
+        font-size: 1.25rem;
+      }
+
+      .logo {
+        font-size: 1.3rem;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 0.4rem;
+        text-align: center;
+      }
+
+      .section__pic-container {
+        width: auto;
+        height: 46vw;
+        justify-content: center;
+      }
+
+      .section__text__p2 {
+        font-size: 1.25rem;
+      }
+
+      .titre {
+        font-size: 2rem;
+      }
+
+      .text-container {
+        text-align: justify;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <nav id="dekstop-nav">
+    <div class="logo">Cédrick MISSEHOUNGBE</div>
+    <div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Expérience</a></li>
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  <nav id="hamburger-nav">
+    <div class="logo">Cédrick MISSEHOUNGBE</div>
+    <div class="hamburger-menu">
+      <div class="hamburger-icon" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="menu-link">
+        <li><a href="#about" onclick="toggleMenu()">A propos</a></li>
+        <li><a href="#experience" onclick="toggleMenu()">Expérience</a></li>
+        <li><a href="#projets" onclick="toggleMenu()">Projets</a></li>
+        <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+      </div>
+    </div>
+  </nav>
+
+  <!-- section -->
+  <section id="profile">
+    <div class="section__pic-container">
+      <img src="profil.jpg" alt="" />
+    </div>
+    <div class="section__text">
+      <p class="section__text__p1">Salut, J'suis</p>
+      <h1 class="titre">Cédrick</h1>
+      <p class="section__text__p2">Développeur Web</p>
+      <div class="btn-container">
+        <button class="btn btn-color-2" onclick="window.open('Cédrick MISSEHOUNGBE CV.pdf')">
+          Télécharger CV
+        </button>
+
+        <button class="btn btn-color-1" onclick="location.href='https://Wa.me/22945070675'">
+          Contact
+        </button>
+      </div>
+      <div id="socials-container">
+        <a href="https://www.linkedin.com" target="_blank" class="icon">
+          <i class="fab fa-linkedin"></i>
+        </a>
+
+        <a href="https://github.com/cedrickdonald" target="_blank" class="icon">
+          <i class="fab fa-github"></i>
+        </a>
+
+        <a href="https://www.facebook.com/profile.php?id=100074649777746" target="_blank" class="icon">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <!-- <h1 class="titre">A propos</h1> -->
+    <div class="section-container">
+      <div class="section__pic-container">
+        <img src="img1.jpg" alt="" class="about-pic" />
+      </div>
+      <div class="about-details-containers">
+        <div class="about-containers">
+          <div class="details-containers">
+            <h3>Expérience</h3>
+            <p>
+              1 years <br />
+              Developpeur Web junior
+            </p>
+          </div>
+
+          <div class="details-containers">
+            <h3>Education</h3>
+            <p>
+              Dîplome Developpement Web <br />
+            </p>
+          </div>
+        </div>
+        <div class="text">
+          <p>
+            Développeur web junior avec une formation solide en développement
+            web, je suis passionné par la création de solutions innovantes et
+            fonctionnelles. Ayant acquis des compétences techniques en HTML,
+            CSS, JavaScript, et frameworks modernes, je suis prêt à mettre en
+            pratique mes connaissances dans un environnement professionnel.
+            Motivé et curieux, je cherche à intégrer une équipe dynamique pour
+            un stage ou un poste de développeur web junior afin de contribuer
+            à des projets ambitieux et développer mes compétences.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h1 class="titre">Expérience</h1>
+    <div class="experience-details-container">
+      <div class="about-containers">
+        <div class="details-containers">
+          <h2 class="experience-sub-titre">Developpeur Front-end</h2>
+          <div class="article-container">
+            <article>
+              <div>
+                <h3>HTML</h3>
+                <p>Expérience</p>
+              </div>
+            </article>
+
+            <article>
+              <div>
+                <h3>CSS</h3>
+                <p>Expérience</p>
+              </div>
+            </article>
+
+            <article>
+              <div>
+                <h3>JavaScript</h3>
+                <p>Basique</p>
+              </div>
+            </article>
+
+            <article>
+              <div>
+                <h3>Bootstrap</h3>
+                <p>Expérience</p>
+              </div>
+            </article>
+
+            <article>
+              <div>
+                <h3>TailwindCSS</h3>
+                <p>Expérience</p>
+              </div>
+            </article>
+
+            <article>
+              <div>
+                <h3>Canva</h3>
+                <p>Intermédiaire</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="details-containers">
+          <h2 class="experience-sub-titre">Developpeur Back-end</h2>
+          <div class="article-container">
+            <article>
+              <div>
+                <h3>PHP</h3>
+                <p>Expérience</p>
+              </div>
+            </article>
+
+            <article>
+              <div>
+                <h3>Laravel</h3>
+                <p>Basique</p>
+              </div>
+            </article>
+
+            <article>
+              <div>
+                <h3>Github</h3>
+                <p>Expérience</p>
+              </div>
+            </article>
+
+            <article>
+              <div>
+                <h3>Wordpress (autre)</h3>
+                <p>Basique</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projets">
+    <h3 class="titre">Projets</h3>
+    <div class="experience-details-container">
+      <div class="about-containers">
+        <div class="details-containers color-container">
+          <div class="article-container">
+            <img src="projet1.PNG" alt="" class="projets-img" />
+          </div>
+          <h2 class="experience-sub-titre projet-titre">Projet 1</h2>
+          <div class="btn-container">
+            <button class="btn btn-color-2 projet-btn" onclick="location.href='https://github.com/cid-2003'">
+              Github
+            </button>
+          </div>
+        </div>
+
+        <div class="details-containers color-container">
+          <div class="article-container">
+            <img src="projet2.PNG" alt="" class="projets-img" />
+          </div>
+          <h2 class="experience-sub-titre projet-titre">Projet 2</h2>
+          <div class="btn-container">
+            <button class="btn btn-color-2 projet-btn" onclick="location.href='https://github.com/cid-2003'">
+              Github
+            </button>
+          </div>
+        </div>
+
+        <div class="details-containers color-container">
+          <div class="article-container">
+            <img src="projet3.PNG" alt="" class="projets-img" />
+          </div>
+          <h2 class="experience-sub-titre projet-titre">Projet 3</h2>
+          <div class="btn-container">
+            <button class="btn btn-color-2 projet-btn" onclick="location.href='https://github.com/cid-2003'">
+              Github
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h1 class="titre">Contact</h1>
+    <div class="contact-info-upper-container">
+      <div class="contact-info-container">
+        <i class="fab fa-envelope icon contact-icon email-icon"></i>
+        <p>
+          <a href="mailto:cedrickemmanuel69@gmail.com">cedrickemmanuel69@gmail.com</a>
+        </p>
+      </div>
+
+      <div class="contact-info-container">
+        <i class="fab fa-linkedin icon contact-icon"></i>
+        <p>
+          <a href="https://www.linkedin.com">Linkedin</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <nav>
+      <div class="nav-links-container">
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Expérience</a></li>
+          <li><a href="#projets">Projets</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <p>Copyright &#169; 2024 Cédrick Emmanuel. All Rights Reserved.</p>
+  </footer>
+  <script src="script.js"></script>
+  <script>
+    function toggleMenu(){
+    const menu = document.querySelector(".menu-link");
+    const icon = document.querySelector(".hamburger-icon");
+    menu.classList.toggle("open");
+    icon.classList.toggle("open");
+}
+  </script>
+</body>
+
+</html>
